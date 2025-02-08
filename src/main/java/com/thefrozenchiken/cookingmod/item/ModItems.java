@@ -5,6 +5,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -18,7 +20,7 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> KNIFE = ITEMS.register("knife",
-            () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("cookingmod:knife")))));
+            () -> new SwordItem(ToolMaterial.IRON, 3.0F, -2.4F, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("cookingmod:knife")))));
 
 
     public static void register(IEventBus eventbus) {
