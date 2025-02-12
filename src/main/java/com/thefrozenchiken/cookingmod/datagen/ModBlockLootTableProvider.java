@@ -1,5 +1,6 @@
 package com.thefrozenchiken.cookingmod.datagen;
 
+import com.thefrozenchiken.cookingmod.block.ModBlocks;
 import com.thefrozenchiken.cookingmod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -30,7 +31,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-//        dropSelf(ModBlocks.MODDED_BLOCK.get());
+        dropSelf(ModBlocks.MOD_BLOCK.get());
 //        this.add(ModBlocks.MODDED_Ore.get(),
 //                block -> createOreDrop(ModBlocks.MODDED_ORE.get(), ModItems.RAW_MODDED_ORE.get()));
 //        this.add(ModBlocks.MODDED_MULTI_ORE.get(),
@@ -53,7 +54,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-//        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
-        return super.getKnownBlocks();
+        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }
