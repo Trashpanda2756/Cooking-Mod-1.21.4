@@ -1,0 +1,4 @@
+// 1.21.4	2025-02-12T11:37:27.7806242	Cooking Mod Recipes
+4bc20734aa05cbe738c645edd472d75747e15f8f data/cookingmod/advancement/recipes/tools/knife.json
+7106bb44b0a0e0a18e34ab22c4c1679f7e1a4f62 data/cookingmod/recipe/knife.json
+d248c5232893b08a0d5830d0f2f575fd11fe9f3a data/minecraft/advancement/recipes/root.json

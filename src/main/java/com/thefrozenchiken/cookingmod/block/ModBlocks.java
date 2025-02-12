@@ -2,6 +2,9 @@ package com.thefrozenchiken.cookingmod.block;
 
 import com.thefrozenchiken.cookingmod.CookingMod;
 import com.thefrozenchiken.cookingmod.item.ModItems;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,8 +23,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MOD_BLOCK = registerBlock("mod_block",
             () -> new Block(BlockBehaviour.Properties.of()
-//            Input Block Properties Here!
-            ));
+                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.parse("cookingmod:mod_block")))
+                    ));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -30,7 +33,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("cookingmod:mod_block")))));
     }
 
     public static void register(IEventBus eventBus) {
