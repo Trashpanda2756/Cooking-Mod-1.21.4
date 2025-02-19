@@ -17,7 +17,7 @@ public class ModItemModelGenerators extends ItemModelGenerators {
 
     @Override
     public void run() {
-        generateFlatItem(ModItems.KNIFE.get(), ModelTemplates.FLAT_ITEM);
+        generateFlatItem(ModItems.KNIFE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
         if (this.itemModelOutput instanceof ModModelProvider.ModItemInfoCollector collector)
             collector.generateDefaultBlockModels();

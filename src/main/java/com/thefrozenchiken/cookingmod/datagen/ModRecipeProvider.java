@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -24,8 +25,6 @@ import java.util.concurrent.CompletableFuture;
 
 
 public class ModRecipeProvider extends RecipeProvider implements DataProvider {
-
-    protected RecipeOutput pOutput;
 
     protected ModRecipeProvider(HolderLookup.Provider pRegistries, RecipeOutput pOutput) {
         super(pRegistries, pOutput);
@@ -42,9 +41,14 @@ public class ModRecipeProvider extends RecipeProvider implements DataProvider {
                 .pattern("S")
                 .define('S', Items.STICK)
                 .define('I', Items.IRON_INGOT)
-                .unlockedBy(getHasName(ModItems.KNIFE.get()), has(Items.IRON_INGOT)).save(this.output);
+                .unlockedBy(getHasName(ModItems.KNIFE.get()), has(Items.IRON_INGOT))
+                .save(this.output);
 
-
+        this.shapeless(RecipeCategory.MISC, new ItemStack(Items.CHICKEN, 5))
+                .requires(ModItems.KNIFE.get())
+                .requires(Items.CHICKEN)
+                .unlockedBy(getHasName(Items.CHICKEN), has(Items.COOKED_CHICKEN))
+                .save(this.output);
     }
 
     @Override
